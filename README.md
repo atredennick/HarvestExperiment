@@ -8,7 +8,7 @@ The abstract of our paper:
 
 Requirements
 ------------------------
-For most all of our results, we used R (http://www.r-project.org/; we used R 3.1.0, but our code should be compatible across builds) to simulate the model and the following R packges:
+For all of our results, we used R (http://www.r-project.org/; we used R 3.1.0, but our code should be compatible across builds) and the following R packges:
 
 * ``gridExtra``
 * ``plyr``
