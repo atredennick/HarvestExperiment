@@ -1,0 +1,31 @@
+---
+title: control_trees_growth_2011-2013.csv
+output: html_document
+---
+### Dataset description
+In 2010 we installed dendrometer bands on 20 trees at two experimental sites in Mali, West Africa (see site map in Tredennick et al. 2015). Dendrometer bands were installed on trees in fire and herbivory exclosures, so these measurements represent tree growth increments in the absence of those disturbances. Dendrometer bands were installed approximately 10 cm from the soil. Many savanna trees are multi-stemmed, and in cases where stems diverged before the 10cm height we installed bands on each "main stem" at 10cm from the soil. We measured circumference change, based on dendrometer band movement, in 2011 and 2013.
+
+### Data file information
+**Identity**: `control_trees_growth_2011-2013.csv`
+
+**Size**: 61 records (3 KB)
+
+**Format and storage mode**: ASCII text, comma separated
+
+**Header information**: First row of the file contains the variable names described in the table below
+
+**Special characters/fields**: None
+
+### Variable information
+| Variable name | Variable definition | Units | Storage type | Precision |
+| ------------- | ------------------- | ----- | ------------ | --------- |
+| `Site` | Village name | N/A | Character | N/A |
+| `Tree_ID` | Individual tree identifier | N/A | Character | N/A |
+| `Stem_ID` | Identifier for main stems of focal tree | N/A | Character | N/A |
+| `Species` | Latin name (_Genus_ _species_) of sampled species | N/A | Character | N/A |
+| `Treatment` | Treatment code (C = control for all records) | N/A | Character | N/A |
+| `Initial_Circumference_cm` | Initial circumference (taken ~10cm from soil) in 2010 | centimeter | Floating point | 0.1 |
+| `Y1_Circumference_change_cm` | Change in circumference from 2010 to 2011 | centimeter | Floating point | 0.1 |
+| `Y3_Circumference_change_cm` | Change in circumference from 2010 to 2013 | centimeter | Floating point | 0.1 |
+| `Final_state` | Indicator of tree status in 2013: alive or dead | N/A | Character | N/A |
+|  |  |  |  |  |

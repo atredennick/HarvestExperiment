@@ -1,0 +1,37 @@
+---
+title: treatment_data.csv
+output: html_document
+---
+### Dataset description
+In 2010 we harvested 20 trees in each of four treatments (factorial combination of fire/no fire and large herbivores/no large herbivores) at two sites in Mali, West Africa (see site map in Tredennick et al. 2015). 10 of these trees per treatment and site were re-harvested in 2011 and 10 re-harvested in 2013 to measure woody regrowth after initial harvest. In 2013 we also measured regrowth height, as presented here. Note that 10 trees $\times$ 4 treatments $\times$ 2 sites should result in `r 10*4*2` records, but `r 10*4*2-77` trees were dead by 2013.
+
+### Data file information
+**Identity**: `heights2013.csv`
+
+**Size**: 77 records (4 KB)
+
+**Format and storage mode**: ASCII text, comma separated
+
+**Header information**: First row of the file contains the variable names described in the table below
+
+**Special characters/fields**: None
+
+### Variable information
+| Variable name | Variable definition | Units | Storage type | Precision |
+| ------------- | ------------------- | ----- | ------------ | --------- |
+| `Site` | Village name | N/A | Character | N/A |
+| `Treatment` | Treatment code for each observation (see below) | N/A | Character | N/A |
+| `ID` | Identifier for each tree | N/A | Integer | 1 |
+| `Species` | Latin name (_Genus_ _species_) of sampled species | N/A | Character | N/A |
+| `Height_m` | Observed height in 2013 | meter | Floating point | 0.1 |
+| `InitBiomass_g` | Initial biomass of tree at time of harvest in 2010^[These values are the output from the allometric model described in the supplementary text.] | grams | Floating point | 0.1 |
+|  |  |  |  |  |
+
+### Treatment descriptions
+| Treatment Code (integer) | Treatment Descriptor (character) | Treatment Description |
+| ------------------------ | -------------------------------- | --------------------- |
+| 1 | FH | Annual fire / large herbivores present |
+| 2 | Fh | Annual fire / large herbivores excluded |
+| 3 | fH | No fire / large herbivores present |
+| 4 | fh | No fire / large herbivores excluded |
+| | | |

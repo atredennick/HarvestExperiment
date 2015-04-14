@@ -1,0 +1,39 @@
+---
+title: ssde_harvest_trees.csv
+output: html_document
+---
+### Dataset description
+In 2010 we implemented a tree harvest experiment within an existing fully factorial fire and hebivore manipulative experimental structure at two sites in Mali, West Africa (see main text of Tredennick et al. 2015 _African Journal of Ecology_; the main experiment is the Sahelian Savanna Disturbance Experiment [SSDE]). This dataset is an accounting list of each tree harvested, its associated treatment, and the year it was re-harvested to measure regrowth.
+
+### Data file information
+**Identity**: `ssde_harvest_trees.csv`
+
+**Size**: 153 records (7 KB)
+
+**Format and storage mode**: ASCII text, comma separated
+
+**Header information**: First row of the file contains the variable names described in the table below
+
+**Special characters/fields**: None
+
+### Variable information
+| Variable name | Variable definition | Units | Storage type | Precision |
+| ------------- | ------------------- | ----- | ------------ | --------- |
+| `Site` | Village name | N/A | Character | N/A |
+| `Site Code` | Integer identifier for each site | N/A | Integer | N/A |
+| `Treatment Code` | Treatment code | N/A | Integer | N/A |
+| `Treatment` | Treatment from which the tree was harvested | N/A | Character | N/A |
+| `Plot` | Plot identifier (Treatment-Plot) | N/A | Character | N/A |
+| `TreeID` | Individual tree identifier | N/A | Character | N/A |
+| `Year Regrowth Cut` | Calendar year that regrowth was measured | year | Integer | N/A |
+| `Species` | Latin name (_Genus_ _species_) of sampled species | N/A | Character | N/A |
+|  |  |  |  |  |
+
+### Treatment descriptions
+| Treatment Code (integer) | Treatment Descriptor (character) | Treatment Description |
+| ------------------------ | -------------------------------- | --------------------- |
+| 1 | FH | Annual fire / large herbivores present |
+| 2 | Fh | Annual fire / large herbivores excluded |
+| 3 | fH | No fire / large herbivores present |
+| 4 | fh | No fire / large herbivores excluded |
+| | | |

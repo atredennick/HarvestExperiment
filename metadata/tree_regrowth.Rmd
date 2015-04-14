@@ -1,0 +1,38 @@
+---
+title: tree_regrowth.csv
+output: html_document
+---
+
+### Dataset description
+In 2011 and 2013, we re-harvested trees first harvested in 2010 in all treatments at each site to measure woody regrowth. We measured woody biomass in the field using a balance for small stems and and hanging scale for larger stems. We randomly identified 10 trees per treatment in each year to harvest. However, some trees did not resprout after initial harvest in 2010, so our sample size is below the expected `r 10*4*2*2`. These measures can be converted to dry weights by using the average wet:dry weight ratio obtained by simple calculations using the `wet_dry_subsamples.csv` data.
+
+### Data file information
+**Identity**: `tree_regrowth.csv`
+
+**Size**: 155 records (7 KB)
+
+**Format and storage mode**: ASCII text, comma separated
+
+**Header information**: First row of the file contains the variable names described in the table below
+
+**Special characters/fields**: none
+
+### Variable information
+| Variable name | Variable definition | Units | Storage type | Precision |
+| ------------- | ------------------- | ----- | ------------ | --------- |
+| `site` | Village name | N/A | Character | N/A |
+| `treatment_code` | Integer code for treatment | N/A | Integer | 1 |
+| `tree_id` | Integer code of focal tree | N/A | Integer | 1 |
+| `species_name` | Latin name of sampled species | N/A | Character | N/A |
+| `harvest_year` | Year the tree was harvested for measuring regrowth | N/A | Character | N/A |
+| `wood_wet_weight_kg` | Wet wood mass of focal tree | kilograms | Floating point | 0.001 |
+|  |  |  |  |  |
+
+### Treatment descriptions
+| Treatment Code (integer) | Treatment Descriptor (character) | Treatment Description |
+| ------------------------ | -------------------------------- | --------------------- |
+| 1 | FH | Annual fire / large herbivores present |
+| 2 | Fh | Annual fire / large herbivores excluded |
+| 3 | fH | No fire / large herbivores present |
+| 4 | fh | No fire / large herbivores excluded |
+| | | |

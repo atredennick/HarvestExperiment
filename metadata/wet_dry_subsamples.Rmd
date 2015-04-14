@@ -1,0 +1,39 @@
+---
+title: wet_dry_subsamples.csv
+output: html_document
+---
+
+### Dataset description
+In 2011 and 2013, we re-harvested trees first harvested in 2010 in all treatments at each site to measure woody regrowth. We took subsamples of harvested trees to obtain dry weights and to calculate an average dry:wet weight ratio for each species in each year. Each year we identified 10 trees per treatment for harvest. However, some trees died or the subsamples were damaged during shipment from Mali to the United States. Wood subsamples were dried at 100$\deg$ C until a constant weight was achieved.
+
+### Data file information
+**Identity**: `wet_dry_subsamples.csv`
+
+**Size**: 113 records (5 KB)
+
+**Format and storage mode**: ASCII text, comma separated
+
+**Header information**: First row of the file contains the variable names described in the table below
+
+**Special characters/fields**: none
+
+### Variable information
+| Variable name | Variable definition | Units | Storage type | Precision |
+| ------------- | ------------------- | ----- | ------------ | --------- |
+| `site` | Village name | N/A | Character | N/A |
+| `year` | Year the tree was harvested | N/A | Character | N/A |
+| `species_name` | Latin name of sampled species | N/A | Character | N/A |
+| `treatment_code` | Integer code for treatment | N/A | Integer | 1 |
+| `tree_id` | Integer code of focal tree | N/A | Integer | 1 |
+| `wood_wet_weight_g` | Wet wood mass of subsample | grams | Integer | 1 |
+| `wood_dry_weight_g` | Dry wood mass of subsample | grams | Floating point | 0.01 |
+|  |  |  |  |  |
+
+### Treatment descriptions
+| Treatment Code (integer) | Treatment Descriptor (character) | Treatment Description |
+| ------------------------ | -------------------------------- | --------------------- |
+| 1 | FH | Annual fire / large herbivores present |
+| 2 | Fh | Annual fire / large herbivores excluded |
+| 3 | fH | No fire / large herbivores present |
+| 4 | fh | No fire / large herbivores excluded |
+| | | |

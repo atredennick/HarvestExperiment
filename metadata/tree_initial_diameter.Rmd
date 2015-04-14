@@ -1,0 +1,40 @@
+---
+title: tree_initial_diameter.csv
+output: html_document
+---
+
+### Dataset description
+In 2010 we implemented a tree harvest experiment within an existing fully factorial fire and hebivore manipulative experimental structure at two sites in Mali, West Africa (see main text of Tredennick et al. 2015 _African Journal of Ecology_; the main experiment is the Sahelian Savanna Disturbance Experiment [SSDE]). This dataset includes the diameter of all trees harvested and those tracked as controls (unharvested) measured in 2010 at the start of the harvest experiment. Diameter was measured at 10 cm above the soil surface using a tape measure.
+
+### Data file information
+**Identity**: `tree_initial_diameter.csv`
+
+**Size**: 283 records (14 KB)
+
+**Format and storage mode**: ASCII text, comma separated
+
+**Header information**: First row of the file contains the variable names described in the table below
+
+**Special characters/fields**: none
+
+### Variable information
+| Variable name | Variable definition | Units | Storage type | Precision |
+| ------------- | ------------------- | ----- | ------------ | --------- |
+| `site` | Village name | N/A | Character | N/A |
+| `species_name` | Latin name of sampled species | N/A | Character | N/A |
+| `year` | Year of observation | N/A | Character | N/A |
+| `treatment_code` | Integer code for treatment (see below) | N/A | Integer | 1 |
+| `tree_id` | Integer code of focal tree | N/A | Integer | 1 |
+| `stem_id` | Integer code for stem of focal tree if it was multi-stemmed | N/A | Integer | 1 |
+| `diameter_kg` | Diameter at 10cm from soil | centimeter | Floating point | 0.1 |
+|  |  |  |  |  |
+
+### Treatment descriptions
+| Treatment Code (integer) | Treatment Descriptor (character) | Treatment Description |
+| ------------------------ | -------------------------------- | --------------------- |
+| 1 | FH | Annual fire / large herbivores present |
+| 2 | Fh | Annual fire / large herbivores excluded |
+| 3 | fH | No fire / large herbivores present |
+| 4 | fh | No fire / large herbivores excluded |
+| 5 | C-fh | Non-harvested control trees; No fire / large herbivores excluded |
+| | | |
