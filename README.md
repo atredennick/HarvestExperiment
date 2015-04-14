@@ -1,4 +1,4 @@
-Weak effects of fire, large herbivores, and their interaction on regrowth of harvested trees in two West African savannas
+No effects of fire, large herbivores, and their interaction on regrowth of harvested trees in two West African savannas
 =================
 
 Data and code to reproduce analysis of SSDE harvest experiment as reported in Tredennick et al. (in review).
@@ -15,6 +15,9 @@ For all of our results, we used R (http://www.r-project.org/; we used R 3.1.0, b
 * ``reshape2``
 * ``ggplot2``
 * ``lme4``
+* ``rdryad``
+* ``ggthemes``
+* ``AICcmodavg``
 
 To install these packages, run the code chunk below in your R console:
 
@@ -24,4 +27,7 @@ install.packages("plyr")
 install.packages("reshape2")
 install.packages("gridExtra")
 install.packages("lme4")
+install.packages("rdryad")
+install.packages("AICcmodavg")
+install.packages("ggthemes")
 ```
