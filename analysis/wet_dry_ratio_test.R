@@ -103,7 +103,7 @@ for(wd_now in 1:length(wdVec)){
 plot_data <- data.frame(ratio=rep(wdVec,2),
                         p_value=c(p_harvcontrol,p_lakyear),
                         test=rep(c("fh vs. Control", "2011 vs. 2013"), each=length(wdVec)))
-pdf(file = "../results/FigureS1.pdf", width = 5, height = 3)
+pdf(file = "../results/FigureS2.pdf", width = 5, height = 3)
 print(
   ggplot(plot_data, aes(x=ratio, y=p_value))+
   geom_point()+

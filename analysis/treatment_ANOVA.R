@@ -8,11 +8,6 @@
 ##  This code is provided 'as is.' Any attempt to use this
 ##    code for different data is done so at the users own risk.
 
-######
-###### TODO: Check that mortality carries through based on NA regrowth for
-######        non-NA initial biomass.
-######
-
 # Clear everything
 rm(list=ls()) 
 
@@ -102,7 +97,8 @@ allDnoNA <- subset(allD, is.na(rrg)==FALSE)
 # get rid of extra treatment columns
 drop <- "Treatment"
 plot_info_data <- plot_info_data[,!(names(plot_info_data) %in% drop)]
-test <- merge(allDnoNA,plot_info_data, by.x=c("site","treatment_code","tree_id"), by.y=c("Site","Treatment.Code","TreeID"))
+test <- merge(allDnoNA,plot_info_data, by.x=c("site","treatment_code","tree_id"), 
+              by.y=c("Site","Treatment.Code","TreeID"))
 # make sure the merge worked correctly
 test$Year.Regrowth.Cut <- test$Year.Regrowth.Cut+2010
 test$Year.Regrowth.Cut[which(test$Year.Regrowth.Cut==2012)] <- 2013
@@ -113,6 +109,7 @@ test <- test[,!(names(test) %in% drops)]
 names(test)[which(names(test)=="species_name")] <- "Species"
 allDnoNA <- test
 # log transform to meet normality and homoscedasticity assumptions
+allDnoNA$normrrg <- allDnoNA$rrg
 allDnoNA$rrg <- log(allDnoNA$rrg)
 
 
@@ -123,19 +120,27 @@ allDnoNA$rrg <- log(allDnoNA$rrg)
 facANOVA <- matrix(nrow=4, ncol=6) 
 
 #Tiendega ANOVAs
-facANOVA[1, c(1,3,5)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Tiendega" & harvest_year==2011)))[1:3,4], 3)
-facANOVA[1, c(2,4,6)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Tiendega" & harvest_year==2011)))[1:3,5], 3)
-facANOVA[2, c(1,3,5)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Tiendega" & harvest_year==2013)))[1:3,4], 3)
-facANOVA[2, c(2,4,6)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Tiendega" & harvest_year==2013)))[1:3,5], 3)
-# plot(lm(rrg~fire*herb, data=subset(allDnoNA, Site=="Tiendega" & harvest_year==2011)))
-# plot(lm(rrg~fire*herb, data=subset(allDnoNA, Site=="Tiendega" & Year.Harvested==2013)))
+lm_tien2011 <- lm(rrg~fire*herb, data=subset(allDnoNA, site=="Tiendega" & harvest_year==2011))
+sampsize_tien2011 <- nrow(model.frame(lm_tien2011)) 
+facANOVA[1, c(1,3,5)] <- round(anova(lm_tien2011)[1:3,4],3)
+facANOVA[1, c(2,4,6)] <- round(anova(lm_tien2011)[1:3,5],3)
+
+lm_tien2013 <- lm(rrg~fire*herb, data=subset(allDnoNA, site=="Tiendega" & harvest_year==2013))
+sampsize_tien2013 <- nrow(model.frame(lm_tien2013)) 
+facANOVA[2, c(1,3,5)] <- round(anova(lm_tien2013)[1:3,4],3)
+facANOVA[2, c(2,4,6)] <- round(anova(lm_tien2013)[1:3,5],3)
+
 
 #Lakamane ANOVAs
+lm_lak2011 <- lm(rrg~fire*herb, data=subset(allDnoNA, site=="Lakamane" & harvest_year==2011))
+sampsize_lak2011 <- nrow(model.frame(lm_lak2011)) 
+facANOVA[3, c(1,3,5)] <- round(anova(lm_lak2011)[1:3,4], 3)
+facANOVA[3, c(2,4,6)] <- round(anova(lm_lak2011)[1:3,5], 3)
 
-facANOVA[3, c(1,3,5)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Lakamane" & harvest_year==2011)))[1:3,4], 3)
-facANOVA[3, c(2,4,6)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Lakamane" & harvest_year==2011)))[1:3,5], 3)
-facANOVA[4, c(1,3,5)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Lakamane" & harvest_year==2013)))[1:3,4], 3)
-facANOVA[4, c(2,4,6)] <- round(anova(lm(rrg~fire*herb, data=subset(allDnoNA, site=="Lakamane" & harvest_year==2013)))[1:3,5], 3)
+lm_lak2013 <- lm(rrg~fire*herb, data=subset(allDnoNA, site=="Lakamane" & harvest_year==2013))
+sampsize_lak2013 <- nrow(model.frame(lm_lak2013)) 
+facANOVA[4, c(1,3,5)] <- round(anova(lm_lak2013)[1:3,4], 3)
+facANOVA[4, c(2,4,6)] <- round(anova(lm_lak2013)[1:3,5], 3)
 # plot(lm(rrg~fire*herb, data=subset(allDnoNA, Site=="Lakamane" & Year.Harvested==2011)))
 # plot(lm(rrg~fire*herb, data=subset(allDnoNA, Site=="Lakamane" & Year.Harvested==2013)))
 
@@ -148,8 +153,15 @@ colnames(facANOVAD) <- c("F_fire", "P_fire", "F_herb", "P_herb", "F_interact", "
 rownames(facANOVAD) <- c("Tiendega_2011", "Tiendega_2013", 
                         "Lakamane_2011", "Lakamane_2013")
 
+sampsizes <- as.data.frame(c(sampsize_tien2011, sampsize_tien2013,
+                             sampsize_lak2011, sampsize_lak2013))
+rownames(sampsizes) <- c("tien2011", "tien2013",
+                         "lak2011", "lak2013")
+colnames(sampsizes) <- "sample_size"
+
 #write results file (Table 1)
 write.csv(facANOVAD, "../results/factorial_ANOVA_results.csv")
+write.csv(sampsizes, "../results/factorial_ANOVA_samplesizes.csv")
 
 
 ####
@@ -201,7 +213,11 @@ rownames(poolD) <- c("F", "P")
 #write results file
 write.csv(poolD, "../results/pooled_treatment_results.csv")
 
-
+#Get mean and SD for pooled treatment rrgr at each site in each year
+stats_d <- ddply(allDnoNA, .(site, harvest_year), summarise,
+                 avg_rrgr = mean(normrrg),
+                 sd_rrgr = sd(normrrg))
+write.csv(stats_d, "../results/pooled_treatment_means_sds.csv")
 
 ####
 #### Make figure 3 --------------------------------------------------

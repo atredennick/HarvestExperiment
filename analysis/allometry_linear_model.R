@@ -86,7 +86,7 @@ pred_data <- data.frame(diameter=newx, biomass=pred_plot, species=newspp)
 plot_data <- data.frame(diameter=x, biomass=Y,
                         species=allometry_data$spp)
 
-pdf("../results/FigureS2.pdf", width = 6, height = 3.5)
+pdf("../results/FigureS1.pdf", width = 6, height = 3.5)
 print(
 ggplot()+
   geom_point(data=plot_data, aes(log(diameter), log(biomass), color=species), size=3.5)+
