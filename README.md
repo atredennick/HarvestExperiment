@@ -18,12 +18,14 @@ For all of our results, we used R (http://www.r-project.org/; we used R 3.1.0, b
 * ``rdryad``
 * ``ggthemes``
 * ``AICcmodavg``
+* ``Rcpp``
 
 To install these packages, run the code chunk below in your R console:
 
 ```coffee
 install.packages("ggplot2", dependencies = TRUE)
-install.packages("plyr")
+install.packages("plyr", dependencies = TRUE)
+install.packages("Rcpp")
 install.packages("reshape2")
 install.packages("gridExtra")
 install.packages("lme4")
