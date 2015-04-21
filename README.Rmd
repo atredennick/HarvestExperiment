@@ -38,11 +38,7 @@ Running the ``get_allometric_data.R``, and thus the ``analysis_wrapper.R`` scrip
 
 You will get several warning messages that can be safely ignored. When you run ``analysis_wrapper.R``, you should get output like this in your R console:
 
-``` {r console_output, echo=FALSE, eval=TRUE}
-setwd("./analysis/")
-source("analysis_wrapper.R")
-setwd("../")
-```
+![alt text](screenshot.png)
 
 File Structure
 --------------
